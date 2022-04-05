@@ -86,6 +86,4 @@ class TokenSerializer(serializers.ModelSerializer):
         fields = ("id", "username", "photo_url")
 
     def get_photo_url(self, obj):
-        if not obj.user.avatar:
-            return None
-        return obj.user.avatar.photo.url
+        return obj.user.avatar.photo.url if obj.user.avatar else None

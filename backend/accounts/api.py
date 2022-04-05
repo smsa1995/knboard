@@ -56,7 +56,7 @@ class UserViewSet(
     permission_classes = [IsAuthenticated, IsSelf]
 
     def get_serializer_class(self):
-        if self.action == "retrieve" or self.action == "update":
+        if self.action in ["retrieve", "update"]:
             return UserDetailSerializer
         return super().get_serializer_class()
 
