@@ -147,7 +147,7 @@ def test_invalid_move_atomic(
     col3.refresh_from_db()
     assert list(col1.tasks.all()) == [col1_task]
     assert list(col2.tasks.all()) == [col2_task]
-    assert list(col3.tasks.all()) == []
+    assert not list(col3.tasks.all())
 
 
 def test_can_not_order_tasks_between_two_boards(
